@@ -169,11 +169,11 @@ const findResult = function findResult(name) {
     return items[name];
   }
 
-  // find items matching by keyword or firefox_id
+  // find items matching by keyword or firefoxID
   const otherResults = Object.keys(data.data).filter((key) => {
     const keywords = parseKeywords(data.data[key].keywords);
 
-    return data.data[key].firefox_id === name ||
+    return data.data[key].firefoxID === name ||
       keywords.indexOf(name) >= 0;
   });
 
@@ -192,13 +192,13 @@ const firstArgument = ({ reply }) => {
   // add all keys
   const dataKeys = Object.keys(data.data);
 
-  // add keywords and firefox_id's
+  // add keywords and firefoxID's
   const otherKeys = Object.keys(data.data).reduce((keys, item) => {
     let newKeys = [];
-    const { firefox_id, keywords } = data.data[item];
+    const { firefoxID, keywords } = data.data[item];
 
-    if (firefox_id.length > 0) {
-      newKeys.push(firefox_id);
+    if (firefoxID.length > 0) {
+      newKeys.push(firefoxID);
     }
 
     newKeys = newKeys.concat(parseKeywords(keywords));
