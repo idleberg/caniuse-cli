@@ -2,7 +2,7 @@
 
 Command line tool for caniuse database.
 
-![caniuse-cli screenshot](https://github.com/dsenkus/caniuse-cli/raw/master/screenshot.png?raw=true)
+![caniuse-cli screenshot](https://github.com/idleberg/caniuse-cli/raw/master/screenshot.png?raw=true)
 
 ## Features
 
@@ -12,7 +12,7 @@ Command line tool for caniuse database.
 ## Installation
 
 ```
-# npm install -g caniuse-cli
+# npm install -g @idleberg/caniuse-cli
 ```
 
 ## Usage

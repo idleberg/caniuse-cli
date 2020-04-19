@@ -1,7 +1,7 @@
 {
-  "name": "caniuse-cli",
+  "name": "@idleberg/caniuse-cli",
   "version": "1.0.30000979",
-  "description": "Comman line tool for Caniuse database",
+  "description": "Command line tool for Caniuse database",
   "keywords": [
     "support",
     "css",
@@ -34,6 +34,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dsenkus/caniuse-cli.git"
+    "url": "https://github.com/idleberg/caniuse-cli.git"
   }
 }
