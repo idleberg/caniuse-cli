@@ -15,7 +15,6 @@
   },
   "scripts": {
     "upgrade-db": "npm update --save caniuse-db && git add package.json && git commit -m \"upgrade db\" && git push origin master",
-    "bump-version": "node ./bump_version.js",
     "test": "eslint index.js"
   },
   "author": "David Senkus",
