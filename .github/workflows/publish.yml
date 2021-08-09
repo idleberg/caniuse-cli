@@ -43,7 +43,8 @@ jobs:
       if:  ${{ contains(steps.outdated.outputs.npm_update_text, 'caniuse-db') }}
       run: npm install caniuse-db@1
 
-    - id: Get meta-data
+    - name: Get meta-data
+      id: set_var
       run: |
         content=`npm ls --json caniuse-db`
         
