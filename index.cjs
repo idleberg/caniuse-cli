@@ -5,9 +5,9 @@ const chalk = require('chalk');
 const data = require('caniuse-db/fulldata-json/data-2.0.json');
 const mri = require('mri');
 const omelette = require('omelette');
-const pkg = require('./package.json');
 const updateNotifier = require('update-notifier');
 const wrap = require('wordwrap')(80);
+const pkg = require('./package.json');
 
 const agents =  ['ie', 'edge', 'firefox', 'chrome', 'safari', 'opera', 'ios_saf', 'op_mini', 'android', 'and_chr'];
 const defaultItemWidth = 6;
