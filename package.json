@@ -9,9 +9,9 @@
     "html5",
     "svg"
   ],
-  "main": "index.js",
+  "main": "index.cjs",
   "bin": {
-    "caniuse": "./index.js"
+    "caniuse": "./index.cjs"
   },
   "scripts": {
     "upgrade-db": "npm update --save caniuse-db && git add package.json && git commit -m \"upgrade db\" && git push origin master",
