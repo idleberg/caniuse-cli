@@ -35,8 +35,7 @@ jobs:
     - name: Install package dependencies
       run: npm ci
 
-    - name: Find outdated packages
-      uses: MeilCli/npm-update-check-action@v4
+    - uses: MeilCli/npm-update-check-action@v4
       id: outdated
 
     - name: Update caniuse-db
@@ -57,14 +56,12 @@ jobs:
     - name: Version bump
       run: npm version ${{ fromJson(steps.set_var.outputs.metaData).dependencies['caniuse-db'].version }}
 
-    - name: Publish package
-      uses: JS-DevTools/npm-publish@v1
+    - uses: JS-DevTools/npm-publish@v1
       with:
         dry-run: true
         token: ${{ env.NPM_TOKEN }}
 
-    - name: Tag release
-      uses: EndBug/add-and-commit@v7
+    - uses: EndBug/add-and-commit@v7
       with:
         add: 'last-updated --force'
         message: "Update `caniuse-db` to v${{ fromJson(steps.set_var.outputs.metaData).dependencies['caniuse-db'].version }}"
