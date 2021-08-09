@@ -129,6 +129,7 @@ const printTableRow = function printTableRow(item, era) {
  * printItem() prints `caniuse` results for specified item
  */
 const printItem = function printItem(item) {
+  console.log();
   console.log(chalk.bold(wrap(`${item.title}`)));
   console.log(chalk.underline(`https://caniuse.com/#feat=${item.key}`));
   console.log();
