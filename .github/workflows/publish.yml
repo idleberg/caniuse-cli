@@ -1,6 +1,9 @@
 name: CI
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     - cron: '0 * * * *'
 
@@ -56,13 +59,13 @@ jobs:
     - name: Version bump
       run: npm version ${{ fromJson(steps.set_var.outputs.metaData).dependencies['caniuse-db'].version }}
 
-    - uses: JS-DevTools/npm-publish@v1
-      with:
-        dry-run: true
-        token: ${{ env.NPM_TOKEN }}
-
     - uses: EndBug/add-and-commit@v7
       with:
         add: 'last-updated --force'
         message: "Update `caniuse-db` to v${{ fromJson(steps.set_var.outputs.metaData).dependencies['caniuse-db'].version }}"
         tag: "v${{ fromJson(steps.set_var.outputs.metaData).dependencies['caniuse-db'].version }}"
+    
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        dry-run: true
+        token: ${{ env.NPM_TOKEN }}
