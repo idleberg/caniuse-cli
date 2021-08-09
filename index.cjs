@@ -219,7 +219,7 @@ Object.keys(data.data).forEach((key) => {
 });
 
 // find and display result
-const name = process.argv[2]?.toLowerCase() || undefined;
+const name = process.argv[2]?.toLowerCase() || '';
 const res = findResult(name);
 
 if (res !== undefined) {
