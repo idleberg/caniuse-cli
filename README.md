@@ -1,5 +1,9 @@
 # caniuse-cli
 
+[![npm](https://flat.badgen.net/npm/license/@idleberg/caniuse-cli)](https://www.npmjs.org/package/@idleberg/caniuse-cli)
+[![npm](https://flat.badgen.net/npm/v/@idleberg/caniuse-cli)](https://www.npmjs.org/package/@idleberg/caniuse-cli)
+[![David](https://flat.badgen.net/david/dep/idleberg/caniuse-cli)](https://david-dm.org/idleberg/caniuse-cli)
+
 Command line tool for caniuse database.
 
 ![caniuse-cli screenshot](https://github.com/idleberg/caniuse-cli/raw/master/screenshot.png?raw=true)
@@ -21,6 +25,7 @@ Command line tool for caniuse database.
 $ caniuse webrtc
 ```
 ## Enable Tab Autocompletion
+
 In **zsh**:
 
 ```bash
