@@ -1,9 +1,6 @@
 name: CI
 
 on:
-  push:
-    branches:
-      - master
   schedule:
     - cron: '0 * * * *'
 
@@ -64,6 +61,7 @@ jobs:
     - name: Version bump
       uses: reedyuk/npm-version@1.1.1
       with:
+        git-tag-version: true
         version: ${{ fromJson(steps.set_var.outputs.metaData).dependencies['caniuse-db'].version }}
 
     - uses: JS-DevTools/npm-publish@v1
