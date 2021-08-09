@@ -74,7 +74,7 @@ const padCenter = function padCenter(str, length, padStr) {
  * printTableHeader() prints `caniuse` table header
  */
 const printTableHeader = function printTableHeader() {
-  agents.forEach((agent) => {
+  agents.map((agent) => {
     const col = chalk.black.bgWhite(padCenter(data.agents[agent].abbr, columnWidths[agent], ' '));
     process.stdout.write(col);
     process.stdout.write(' ');
@@ -102,7 +102,7 @@ const printTableRowItem = function printTableRowItem(agent, version, dataItem) {
  *  printTableRow prints `caniuse` trable row
  */
 const printTableRow = function printTableRow(item, era) {
-  agents.forEach((agent, index) => {
+  agents.map((agent, index) => {
     const version = getAgentVersion(agent, era);
 
     if (version !== undefined) {
@@ -136,7 +136,7 @@ const printItem = function printItem(item) {
   console.log(wrap(item.description));
   console.log();
   printTableHeader();
-  eras.forEach(era => printTableRow(item, era));
+  eras.map(era => printTableRow(item, era));
   if (item.notes) {
     console.log();
     console.log(wrap(`Notes: ${item.notes}`));
@@ -154,7 +154,7 @@ const parseKeywords = function parseKeywords(keywords) {
     .map(item => item.trim())
     .filter(item => item.length > 0)
     .map(item => item.split(' ').join('-'))
-    .forEach(item => parsedKeywords.push(item));
+    .map(item => parsedKeywords.push(item));
 
   return parsedKeywords;
 };
@@ -214,7 +214,7 @@ const firstArgument = ({ reply }) => {
 omelette`caniuse ${firstArgument}`.init();
 
 // inject key for each item in data object
-Object.keys(data.data).forEach((key) => {
+Object.keys(data.data).map((key) => {
   data.data[key].key = key;
 });
 
@@ -224,7 +224,7 @@ const res = findResult(name);
 
 if (res !== undefined) {
   if (Array.isArray(res)) {
-    res.forEach(item => printItem(item));
+    res.map(item => printItem(item));
   } else {
     printItem(res);
   }
