@@ -2,7 +2,7 @@
 
 // TODO: parse markdown links in notes
 
-const clc = require('cli-color');
+const chalk = require('chalk');
 const omelette = require('omelette');
 const wrap = require('wordwrap')(80);
 const data = require('caniuse-db/fulldata-json/data-2.0.json');
@@ -75,7 +75,7 @@ const padCenter = function padCenter(str, length, padStr) {
  */
 const printTableHeader = function printTableHeader() {
   agents.forEach((agent) => {
-    const col = clc.black.bgWhite(padCenter(data.agents[agent].abbr, columnWidths[agent], ' '));
+    const col = chalk.black.bgWhite(padCenter(data.agents[agent].abbr, columnWidths[agent], ' '));
     process.stdout.write(col);
     process.stdout.write(' ');
   });
@@ -90,11 +90,11 @@ const printTableRowItem = function printTableRowItem(agent, version, dataItem) {
   const text = padCenter(version, columnWidths[agent], ' ');
 
   if (dataItem[0] === 'y') {
-    process.stdout.write(clc.white.bgGreen(text));
+    process.stdout.write(chalk.white.bgGreen(text));
   } else if (dataItem[0] === 'p') {
-    process.stdout.write(clc.white.bgYellow(text));
+    process.stdout.write(chalk.white.bgYellow(text));
   } else {
-    process.stdout.write(clc.white.bgRed(text));
+    process.stdout.write(chalk.white.bgRed(text));
   }
 };
 
@@ -115,7 +115,7 @@ const printTableRow = function printTableRow(item, era) {
 
     if (index < agents.length - 1) {
       if (era === 0) {
-        process.stdout.write(clc.bgBlackBright(' '));
+        process.stdout.write(chalk.bgBlackBright(' '));
       } else {
         process.stdout.write(' ');
       }
@@ -129,8 +129,8 @@ const printTableRow = function printTableRow(item, era) {
  * printItem() prints `caniuse` results for specified item
  */
 const printItem = function printItem(item) {
-  console.log(clc.bold(wrap(`${item.title}`)));
-  console.log(clc.underline(`https://caniuse.com/#feat=${item.key}`));
+  console.log(chalk.bold(wrap(`${item.title}`)));
+  console.log(chalk.underline(`https://caniuse.com/#feat=${item.key}`));
   console.log();
   console.log(wrap(item.description));
   console.log();
