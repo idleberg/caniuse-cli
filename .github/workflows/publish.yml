@@ -1,0 +1,70 @@
+name: CI
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+
+jobs:
+  publish:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+
+    - uses: actions/setup-node@v2
+      with:
+        node-version: 'lts/*'
+
+    - name: Cache node_modules
+      uses: actions/cache@v2
+      env:
+        cache-name: cache-node-modules
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
+
+    - name: Install package dependencies
+      run: npm ci
+
+    - name: Find outdated packages
+      uses: MeilCli/npm-update-check-action@v4
+      id: outdated
+
+    - name: Update caniuse-db
+      if:  ${{ contains(steps.outdated.outputs.npm_update_text, 'caniuse-db') }}
+      run: npm install caniuse-db@1
+
+    - id: Get meta-data
+      run: |
+        content=`npm ls --json caniuse-db`
+        
+        content="${content//'%'/'%25'}"
+        content="${content//$'\n'/'%0A'}"
+        content="${content//$'\r'/'%0D'}"
+        
+        echo "::set-output name=metaData::$content"
+
+    - name: Version bump
+    - run: npm version ${{ fromJson(steps.set_var.outputs.metaData).dependencies['caniuse-db'].version }}
+
+    - name: Publish package
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        dry-run: true
+        token: ${{ env.NPM_TOKEN }}
+
+    - name: Tag release
+      uses: EndBug/add-and-commit@v7
+      with:
+        add: 'last-updated --force'
+        message: 'Bump caniuse-db version'
+        tag: "v${{ fromJson(steps.set_var.outputs.metaData).dependencies['caniuse-db'].version }}"
