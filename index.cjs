@@ -3,6 +3,7 @@
 // TODO: parse markdown links in notes
 
 const chalk = require('chalk');
+const mri = require('mri');
 const omelette = require('omelette');
 const wrap = require('wordwrap')(80);
 const data = require('caniuse-db/fulldata-json/data-2.0.json');
@@ -219,15 +220,22 @@ Object.keys(data.data).map((key) => {
 });
 
 // find and display result
-const name = process.argv[2]?.toLowerCase() || '';
-const res = findResult(name);
+const { _: names } = mri(process.argv.slice(2));
 
-if (res !== undefined) {
-  if (Array.isArray(res)) {
-    res.map(item => printItem(item));
-  } else {
-    printItem(res);
-  }
+if (names?.length) {
+  names.map(name => {
+    const res = findResult(name.toLowerCase());
+
+    if (res !== undefined) {
+      if (Array.isArray(res)) {
+        res.map(item => printItem(item));
+      } else {
+        printItem(res);
+      }
+    } else {
+      console.log(`Nothing was found for '${name}'`);
+    }
+  });
 } else {
   console.log('Nothing was found');
 }
