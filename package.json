@@ -13,6 +13,9 @@
   "bin": {
     "caniuse": "./index.cjs"
   },
+  "engines": {
+    "node": ">=14"
+  },
   "scripts": {
     "upgrade-db": "npm update --save caniuse-db && git add package.json && git commit -m \"upgrade db\" && git push origin master",
     "test": "eslint index.js"
