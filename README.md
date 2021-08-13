@@ -16,7 +16,7 @@ Command line tool for caniuse database.
 ## Installation
 
 ```
-# npm install -g @idleberg/caniuse-cli
+$ npm install -g @idleberg/caniuse-cli
 ```
 
 ## Usage
