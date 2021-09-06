@@ -54,7 +54,7 @@ jobs:
         echo "::set-output name=metaData::$content"
 
     - name: Bump version
-      run: npm version v${{ fromJson(steps.set_var.outputs.metaData).dependencies['caniuse-db'].version }}
+      run: npm version v${{ fromJson(steps.set_var.outputs.metaData).dependencies['caniuse-db'].version }} --git-tag-version false
 
     - uses: EndBug/add-and-commit@v7
       with:
