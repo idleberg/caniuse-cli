@@ -1,6 +1,6 @@
 {
   "name": "@idleberg/caniuse-cli",
-  "version": "1.0.30001251",
+  "version": "1.0.30001255",
   "description": "Command line tool for Caniuse database",
   "keywords": [
     "support",
