@@ -23,7 +23,7 @@
   "author": "David Senkus",
   "license": "ISC",
   "dependencies": {
-    "caniuse-db": "^1.0.30001254",
+    "caniuse-db": "^1.0.30001255",
     "chalk": "^2.4.2",
     "mri": "^1.1.6",
     "omelette": "^0.4.5",
