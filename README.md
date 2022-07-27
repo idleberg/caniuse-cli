@@ -5,7 +5,7 @@
 
 Command line tool for caniuse database.
 
-![caniuse-cli screenshot](https://github.com/idleberg/caniuse-cli/raw/master/screenshot.png?raw=true)
+![caniuse-cli screenshot](https://raw.githubusercontent.com/idleberg/caniuse-cli/main/screenshot.png)
 
 ## Features
 
