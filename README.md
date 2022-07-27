@@ -2,7 +2,6 @@
 
 [![npm](https://flat.badgen.net/npm/license/@idleberg/caniuse-cli)](https://www.npmjs.org/package/@idleberg/caniuse-cli)
 [![npm](https://flat.badgen.net/npm/v/@idleberg/caniuse-cli)](https://www.npmjs.org/package/@idleberg/caniuse-cli)
-[![David](https://flat.badgen.net/david/dep/idleberg/caniuse-cli)](https://david-dm.org/idleberg/caniuse-cli)
 
 Command line tool for caniuse database.
 
