@@ -25,7 +25,16 @@
     "upgrade-db": "npm update --save caniuse-db && git add package.json && git commit -m \"upgrade db\" && git push origin master",
     "test": "eslint index.js"
   },
-  "author": "David Senkus",
+  "contributors": [
+    {
+      "name": "David Senkus",
+      "url": "https://github.com/dsenkus"
+    },
+    {
+      "name": "Jan T. Sott",
+      "url": "https://github.com/idleberg"
+    }
+  ],
   "license": "ISC",
   "dependencies": {
     "caniuse-db": "^1.0.30001406",
