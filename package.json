@@ -23,7 +23,7 @@
   },
   "scripts": {
     "upgrade-db": "npm update --save caniuse-db && git add package.json && git commit -m \"upgrade db\" && git push origin master",
-    "test": "eslint index.js"
+    "test": "eslint index.cjs"
   },
   "contributors": [
     {
@@ -38,17 +38,17 @@
   "license": "ISC",
   "dependencies": {
     "caniuse-db": "^1.0.30001406",
-    "chalk": "^2.4.2",
-    "markdown-link-extractor": "^1.3.0",
+    "chalk": "^4.1.2",
+    "markdown-link-extractor": "^4.0.1",
     "mri": "^1.1.6",
     "omelette": "^0.4.5",
     "update-notifier": "^5.1.0",
     "wordwrap": "^1.0.0"
   },
   "devDependencies": {
-    "eslint": "^7.32.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint": "^8.23.1",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.8.0"
   },
   "repository": {
