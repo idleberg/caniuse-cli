@@ -54,7 +54,7 @@ jobs:
         content="${content//$'\n'/'%0A'}"
         content="${content//$'\r'/'%0D'}"
         
-        echo "metaData=$content" >> $GITHUB_OUTPUT
+        echo "::set-output name=metaData::$content"
 
     - name: Bump version
       run: npm version v${{ fromJson(steps.set_var.outputs.metaData).dependencies['caniuse-db'].version }} --git-tag-version false
