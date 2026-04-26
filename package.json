@@ -1,6 +1,6 @@
 {
   "name": "@idleberg/caniuse-cli",
-  "version": "1.0.30001790",
+  "version": "1.0.30001791",
   "description": "Command line tool for Caniuse database",
   "keywords": [
     "support",
@@ -37,7 +37,7 @@
   ],
   "license": "ISC",
   "dependencies": {
-    "caniuse-db": "^1.0.30001790",
+    "caniuse-db": "^1.0.30001791",
     "chalk": "^4.1.2",
     "markdown-link-extractor": "^4.0.1",
     "mri": "^1.1.6",
